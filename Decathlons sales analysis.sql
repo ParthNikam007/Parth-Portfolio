@@ -25,20 +25,6 @@ ORDER BY
 	Total_revenue DESC
 LIMIT 5;    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- ----------------------------------------------------------
 -- Q2. Analyse Best Selling Vs Slow Selling Products 
 -- ----------------------------------------------------------
@@ -54,10 +40,6 @@ GROUP BY
 	p.product_name
 ORDER BY sales_rank;
 
-
-
-
-
 -- ----------------------------------------------
 -- Q3. Sales Trend Over Time
 -- ----------------------------------------------
@@ -69,7 +51,6 @@ GROUP BY
 	sales_month
 ORDER BY 
 	sales_month;
-
 
 -- ----------------------------------------------
 -- Q4. Analyse Demand By Cities
