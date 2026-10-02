@@ -1,43 +1,55 @@
-# Decathlon-Style Product Catalog: End-to-End Data Cleaning & KPI Analysis
+# Customer Churn Analysis: End-to-End Data Cleaning and KPI Analysis
 
-**Author:** Parth Sanjay Nikam
+## Project Overview
 
-## Overview
-This project analyzes a Decathlon-style product sales dataset using SQL, covering data cleaning and key business KPIs across sales, products, and cities.
+This project presents an interactive customer churn analysis dashboard. It summarizes customer retention, churn rate, contract type, tenure, monthly charges, internet service related charges, and customer type.
 
-## KPIs Covered
-- Revenue by category
-- Best-selling vs. slow-selling products
-- Actual profit after discount
-- Sales trend over time
-- Demand by city
+The dashboard is designed to help businesses identify customer groups with a higher likelihood of churn and support data-driven retention strategies.
 
-## Sample Query: Revenue by Category
+## Dashboard Preview
 
-```sql
-SELECT
-    p.category,
-    SUM(s.quantity_sold * s.unit_price_at_sale * (1 - s.discount_pct)) AS Total_revenue,
-    SUM(s.quantity_sold) AS Total_quantity
-FROM sales s
-JOIN products p
-    ON s.product_id = p.product_id
-GROUP BY
-    p.category
-ORDER BY
-    Total_revenue DESC
-LIMIT 5;
-```
+The dashboard includes the following major sections:
 
-**Result (top categories by revenue):**
+- Total customers and churned customers
+- Overall churn rate
+- Retained customers by risk type
+- Churned customers by contract type
+- Churn rate by tenure band
+- Monthly charges by OnlineSecurity and OnlineBackup status
+- Average monthly charges for churned and non-churned customers
+- Monthly charges by customer type
+- Customer retention overview
 
-| category            | Total_revenue | Total_quantity |
-|----------------------|---------------|-----------------|
-| Hiking & Trekking     | 89,064.25     | 41              |
-| Camping & Bivouac     | 75,039.05     | 11              |
+## Key Findings
 
-## Tools Used
-- SQL (practiced via DB Fiddle)
+Based on the dashboard:
 
-## Notes
-This README covers the queries visible in the project file. Additional KPI queries (best/slow sellers, profit after discount, sales trend, demand by city) can be added here as they're finalized.
+- The dataset contains **7,043** customers.
+- **1,869** customers have churned.
+- The overall churn rate is **26.54%**.
+- Month-to-month contracts account for the largest number of churned customers, with **1,655** customers.
+- One-year contracts account for **166** churned customers.
+- Two-year contracts account for **48** churned customers.
+- Customers with shorter tenure show a higher churn rate than long-tenure customers:
+  - 0–6 months: approximately **53%** (highest)
+  - 6–12 months: approximately **36%**
+  - 12+ months: approximately **17%**
+- Retained customers represent approximately **73.5%**, while churned customers represent approximately **26.5%**.
+
+These findings indicate that early-tenure customers and customers on month-to-month contracts should be prioritized for retention campaigns.
+
+## Business Questions Addressed
+
+This dashboard helps answer the following questions:
+
+1. What percentage of customers have churned?
+2. How many customers have churned in total?
+3. Which contract type has the highest number of churned customers?
+4. Which tenure group is most likely to churn?
+5. How do monthly charges differ between churned and retained customers?
+6. How are monthly charges distributed across customer types?
+7. What proportion of customers has been retained compared with churned customers?
+
+## Tools and Technologies
+
+- **Power BI** for data modelling, visualizations, and dashboard development
